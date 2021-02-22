@@ -1,0 +1,260 @@
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
+#[doc(inline)]
+pub use super::list::{ActionDetail, ListIndex, SelectedDetail};
+
+use super::text_inputs::{
+    // validity_state::ValidityStateJS, 
+    NativeValidityState, ValidityState, ValidityTransform,
+};
+use super::utils::WeakComponentLink;
+use super::{event_into_details, to_option, to_option_string};
+use gloo::events::EventListener;
+use wasm_bindgen::prelude::*;
+use web_sys::Node;
+use yew::prelude::*;
+
+/// The `select` component
+///
+/// [Documentation](https://github.com/material-components/material-components-web-components/tree/master/packages/select)
+pub struct Select {
+    props: Props,
+    node_ref: NodeRef,
+    // validity_transform_closure:
+    //     Option<Closure<dyn Fn(String, NativeValidityState) -> ValidityStateJS>>,
+    opened_listener: Option<EventListener>,
+    closed_listener: Option<EventListener>,
+    action_listener: Option<EventListener>,
+    selected_listener: Option<EventListener>,
+}
+
+/// Props for [`Select`]
+///
+/// Documentation:
+///
+/// - [Properties](https://github.com/material-components/material-components-web-components/tree/master/packages/select#propertiesattributes)
+/// - [Events](https://github.com/material-components/material-components-web-components/tree/master/packages/select#events)
+#[derive(Clone, PartialEq, Properties)]
+pub struct Props {
+    #[prop_or_default]
+    pub value: String,
+    #[prop_or_default]
+    pub label: String,
+    #[prop_or_default]
+    pub natural_menu_width: bool,
+    #[prop_or_default]
+    pub icon: String,
+    #[prop_or_default]
+    pub disabled: bool,
+    #[prop_or_default]
+    pub outlined: bool,
+    #[prop_or_default]
+    pub helper: String,
+    #[prop_or_default]
+    pub required: bool,
+    #[prop_or_default]
+    pub validation_message: String,
+    #[prop_or_default]
+    pub items: String,
+    #[prop_or(- 1)]
+    pub index: i64,
+    // #[prop_or_default]
+    // pub validity_transform: Option<ValidityTransform>,
+    #[prop_or_default]
+    pub validate_on_initial_render: bool,
+    #[prop_or_default]
+    pub children: Children,
+    /// [`WeakComponentLink`] for `List` which provides the following methods
+    /// - ```select(&self)```
+    ///
+    /// See [`WeakComponentLink`] documentation for more information
+    #[prop_or_default]
+    pub select_link: WeakComponentLink<Select>,
+    /// Binds to `opened` event on `select-surface`
+    ///
+    /// See events docs to learn more.
+    #[prop_or_default]
+    pub onopened: Callback<()>,
+    /// Binds to `closed` event on `select-surface`
+    ///
+    /// See events docs to learn more.
+    #[prop_or_default]
+    pub onclosed: Callback<()>,
+    /// Binds to `action` event on `list`
+    ///
+    /// See events docs to learn more.
+    #[prop_or_default]
+    pub onaction: Callback<ActionDetail>,
+    /// Binds to `selected` event on `list`
+    ///
+    /// See events docs to learn more.
+    #[prop_or_default]
+    pub onselected: Callback<SelectedDetail>,
+}
+
+impl Component for Select {
+    type Message = ();
+    type Properties = Props;
+
+    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+        // props.select_link.borrow_mut().replace(link);
+        // Select::ensure_loaded();
+        Self {
+            props,
+            node_ref: NodeRef::default(),
+            // validity_transform_closure: None,
+            opened_listener: None,
+            closed_listener: None,
+            action_listener: None,
+            selected_listener: None,
+        }
+    }
+
+    fn update(&mut self, _msg: Self::Message) -> ShouldRender {
+        false
+    }
+
+    fn change(&mut self, props: Self::Properties) -> bool {
+        if self.props != props {
+            self.props = props;
+            true
+        } else {
+            false
+        }
+    }
+
+    fn view(&self) -> Html {
+        //         value?=to_option_string(&self.props.value)
+        //         label?=to_option_string(&self.props.label)
+        //         naturalMenuWidth?=to_option(self.props.natural_menu_width)
+        //         icon?=to_option_string(&self.props.icon)
+        //         disabled=self.props.disabled
+        //         outlined?=to_option(self.props.outlined)
+        //         helper?=to_option_string(&self.props.helper)
+        //         required=self.props.required
+        //         validationMessage?=to_option_string(&self.props.validation_message)
+        //         items?=to_option_string(&self.props.items)
+        //         index=self.props.index
+        //         validateOnInitialRender?=to_option(self.props.validate_on_initial_render)
+        //         ref=self.node_ref.clone()
+
+        //       { self.props.children.clone() }
+
+        html!{
+            <div class="mdc-select mdc-select--filled demo-width-class">
+                <div class="mdc-select__anchor"
+                    role="button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-labelledby="demo-label demo-selected-text">
+                    <span class="mdc-select__ripple"></span>
+                    <span id="demo-label" class="mdc-floating-label"> { "Pick a Food Group" }</span>
+                    <span class="mdc-select__selected-text-container">
+                    <span id="demo-selected-text" class="mdc-select__selected-text">{ "Vegetables" }</span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg
+                            class="mdc-select__dropdown-icon-graphic"
+                            viewBox="7 10 10 5" focusable="false">
+                            <polygon
+                                class="mdc-select__dropdown-icon-inactive"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 10 12 15 17 10">
+                            </polygon>
+                            <polygon
+                                class="mdc-select__dropdown-icon-active"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 15 12 10 17 15">
+                            </polygon>
+                        </svg>
+                    </span>
+                    <span class="mdc-line-ripple"></span>
+                </div>
+
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                    <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                    </li>
+                    <li class="mdc-list-item" aria-selected="false" data-value="grains" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                        { "Bread, Cereal, Rice, and Pasta" }
+                        </span>
+                    </li>
+                    <li class="mdc-list-item mdc-list-item--disabled" aria-selected="false" data-value="vegetables" aria-disabled="true" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                        { "Vegetables" }
+                        </span>
+                    </li>
+                    <li class="mdc-list-item" aria-selected="false" data-value="fruit" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                        { "Fruit" }
+                        </span>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+
+    //noinspection DuplicatedCode
+    fn rendered(&mut self, first_render: bool) {
+        // if first_render {
+        //     let element = self.node_ref.cast::<Select>().unwrap();
+        //     if let Some(transform) = self.props.validity_transform.clone() {
+        //         self.validity_transform_closure = Some(Closure::wrap(Box::new(
+        //             move |s: String, v: NativeValidityState| -> ValidityStateJS {
+        //                 transform.0(s, v).into()
+        //             },
+        //         )
+        //             as Box<dyn Fn(String, NativeValidityState) -> ValidityStateJS>));
+        //         element.set_validity_transform(&self.validity_transform_closure.as_ref().unwrap());
+        //     }
+
+        //     let onopened = self.props.onopened.clone();
+        //     self.opened_listener = Some(EventListener::new(&element, "opened", move |_| {
+        //         onopened.emit(())
+        //     }));
+
+        //     let onclosed = self.props.onclosed.clone();
+        //     self.closed_listener = Some(EventListener::new(&element, "closed", move |_| {
+        //         onclosed.emit(())
+        //     }));
+
+        //     let on_action = self.props.onaction.clone();
+        //     self.action_listener = Some(EventListener::new(&element, "action", move |event| {
+        //         on_action.emit(ActionDetail::from(event_into_details(event)))
+        //     }));
+
+        //     let on_selected = self.props.onselected.clone();
+        //     self.selected_listener = Some(EventListener::new(&element, "selected", move |event| {
+        //         on_selected.emit(SelectedDetail::from(event_into_details(event)))
+        //     }));
+        // }
+    }
+}
+
+impl WeakComponentLink<Select> {
+    pub fn select(&self, val: usize) {
+        // let c = (*self.borrow().as_ref().unwrap().get_component().unwrap())
+        //     .node_ref
+        //     .clone();
+        // let select_element = c.cast::<Select>().unwrap();
+        // select_element.select(val);
+    }
+}
+
+impl Select {
+    /// Returns [`ValidityTransform`] to be passed to `validity_transform` prop
+    pub fn validity_transform<F: Fn(String, NativeValidityState) -> ValidityState + 'static>(
+        func: F,
+    ) -> ValidityTransform {
+        ValidityTransform::new(func)
+    }
+}

@@ -1,0 +1,113 @@
+[package]
+name = "ymc"
+version = "0.1.0"
+authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+edition = "2018"
+
+# [lib]
+# crate-type = ["cdylib", "rlib"]
+
+[features]
+banner = []
+button = []
+card = []
+checkbox = []
+chips = []
+circular-progress-four-color = []
+circular-progress = []
+data-table = []
+dialog = []
+drawer = []
+fab = []
+formfield = []
+icon-button-toggle = []
+icon-button = []
+icon = []
+image-list = []
+linear-progress = []
+list = []
+menu = []
+radio = []
+select = []
+slider = []
+snackbar = []
+switch = []
+tabs = []
+textarea = []
+textfield = []
+tooltip = []
+top-app-bar-fixed = []
+top-app-bar = []
+full = [
+    "banner",
+    "button",
+    "card",
+    "checkbox",
+    "chips",
+    "circular-progress-four-color",
+    "circular-progress",
+    "data-table",
+    "dialog",
+    "drawer",
+    "fab",
+    "formfield",
+    "icon-button-toggle",
+    "icon-button",
+    "icon",
+    "image-list",
+    "linear-progress",
+    "list",
+    "menu",
+    "radio",
+    "select",
+    "slider",
+    "snackbar",
+    "switch",
+    "tabs",
+    "textarea",
+    "textfield",
+    "tooltip",
+    "top-app-bar-fixed",
+    "top-app-bar",        
+]
+default = ["full"]
+
+# [profile.release]
+# # less code to include into binary
+# panic = 'abort' 
+# # optimization over all codebase ( better optimization, slower build )
+# codegen-units = 1
+# # optimization for size ( more aggressive )
+# opt-level = 'z' 
+# # optimization for size 
+# # opt-level = 's' 
+# # link time optimization using using whole-program analysis
+# lto = true
+
+[dependencies]
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+wasm-logger = "0.2"
+gloo = "0.2"
+js-sys = "0.3"
+log = "0.4"
+wee_alloc = { version = "0.4", optional = true }
+yew = "0.17"
+yew-router = "0.14"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+doc-comment = "0.3"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  'KeyboardEvent',
+  "ValidityState",
+  "CustomEvent",
+  "Node",
+  "Element",
+  "HtmlElement",
+  "Window",
+  "Document",
+]
