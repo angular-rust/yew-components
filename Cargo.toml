@@ -2,10 +2,18 @@
 name = "ymc"
 version = "0.1.0"
 authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+readme = "README.md"
+homepage = "https://angular-rust.github.io/yew-components"
+repository = "https://github.com/angular-rust/yew-components"
+documentation = "https://docs.rs/ymc"
+description = "Materail Components for YEW"
+keywords = ["wasm", "web", "material", "webassembly", "awesome", "yew", "yew-framework", "material-design", "material-components", "yew-material"]
+categories = ["wasm", "web-programming", "gui"]
 edition = "2018"
+license = "MPL-2.0"
 
-# [lib]
-# crate-type = ["cdylib", "rlib"]
+[badges]
+maintenance = { status = "actively-developed" }
 
 [features]
 banner = []
@@ -71,18 +79,6 @@ full = [
     "top-app-bar",        
 ]
 default = ["full"]
-
-# [profile.release]
-# # less code to include into binary
-# panic = 'abort' 
-# # optimization over all codebase ( better optimization, slower build )
-# codegen-units = 1
-# # optimization for size ( more aggressive )
-# opt-level = 'z' 
-# # optimization for size 
-# # opt-level = 's' 
-# # link time optimization using using whole-program analysis
-# lto = true
 
 [dependencies]
 wasm-bindgen = "0.2"
