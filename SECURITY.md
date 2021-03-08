@@ -4,8 +4,7 @@ If you believe you have found a security vulnerability in Angular Rust, we encou
 
 ## Reporting a Vulnerability
 
-To report a security vulnerability, please email the maintainers at `dudochkin.victor@gmail.com`. Please do not create a Github issue
-for security vulnerabilities.
+To report a security vulnerability, please create a Github issue [here](https://github.com/angular-rust/yew-components/issues/new).
 
 If you can, please include the following details:
 * An MCVE (minimum complete verifiable example) – this is a short code snippet which demonstrates the error in the 
