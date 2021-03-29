@@ -7,7 +7,7 @@ name: github pages
 on:
   push:
     branches:
-      - pages
+      - docs
 
 jobs:
   deploy:
