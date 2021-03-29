@@ -18,7 +18,9 @@ maintenance = { status = "actively-developed" }
 [features]
 banner = []
 button = []
+barchart = ["ux-animate", "ux-dataflow", "ux-charts", "ux-charts/web"]
 card = []
+charts = ["barchart", "gaugechart", "linechart", "piechart", "radarchart"]
 checkbox = []
 chips = []
 circular-progress-four-color = []
@@ -28,13 +30,17 @@ dialog = []
 drawer = []
 fab = []
 formfield = []
+gaugechart = ["ux-animate", "ux-dataflow", "ux-charts", "ux-charts/web"]
 icon-button-toggle = []
 icon-button = []
 icon = []
 image-list = []
+linechart = ["ux-animate", "ux-dataflow", "ux-charts", "ux-charts/web"]
 linear-progress = []
 list = []
 menu = []
+piechart = ["ux-animate", "ux-dataflow", "ux-charts", "ux-charts/web"]
+radarchart = ["ux-animate", "ux-dataflow", "ux-charts", "ux-charts/web"]
 radio = []
 select = []
 slider = []
@@ -50,6 +56,7 @@ full = [
     "banner",
     "button",
     "card",
+    "charts",
     "checkbox",
     "chips",
     "circular-progress-four-color",
@@ -91,6 +98,10 @@ wee_alloc = { version = "0.4", optional = true }
 yew = "0.17"
 yew-router = "0.14"
 
+ux-dataflow = { version = "0.1", optional = true }
+ux-animate = { version = "0.1", optional = true }
+ux-charts = { version = "0.1", optional = true }
+
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
 doc-comment = "0.3"
@@ -106,4 +117,5 @@ features = [
   "HtmlElement",
   "Window",
   "Document",
+  "HtmlCanvasElement",
 ]

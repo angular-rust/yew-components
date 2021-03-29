@@ -1,30 +1,37 @@
 # YEW Material Components
 
+<div align="center">
+
 [![API Docs][docrs-badge]][docrs-url]
 [![Crates.io][crates-badge]][crates-url]
 [![MPL-2.0 licensed][license-badge]][license-url]
 [![Gitter chat][gitter-badge]][gitter-url]
 [![Rustc Version 1.45+][rust-badge]][rust-url]
+[![loc][loc-badge]][loc-url]
+</div>
 
 [docrs-badge]: https://img.shields.io/docsrs/ymc?style=flat-square
-[docrs-url]: https://docs.rs/ymc/
+[docrs-url]: https://docs.rs/uymc/
 [crates-badge]: https://img.shields.io/crates/v/ymc.svg?style=flat-square
 [crates-url]: https://crates.io/crates/ymc
 [license-badge]: https://img.shields.io/badge/license-MPL--2.0-blue.svg?style=flat-square
 [license-url]: https://github.com/angular-rust/yew-components/blob/master/LICENSE
 [gitter-badge]: https://img.shields.io/gitter/room/angular_rust/angular_rust.svg?style=flat-square
-[gitter-url]: https://gitter.im/angular_rust/angular_rust
+[gitter-url]: https://gitter.im/angular_rust/community
 [rust-badge]: https://img.shields.io/badge/rustc-1.45-lightgrey.svg?style=flat-square
 [rust-url]: https://blog.rust-lang.org/2020/07/16/Rust-1.45.0.html
+[loc-badge]: https://tokei.rs/b1/github/angular-rust/yew-components?category=code
+[loc-url]: https://github.com/angular-rust/yew-components
 
-Angular Rust is a high productivity, frontend web framework for the [Rust language](https://www.rust-lang.org/).
+Material Design Components for the Yew framework.
 
-Material Design Components for the Yew framework
+**Angular Rust** is a high productivity, `platform-agnostic` frontend framework for the [Rust language](https://www.rust-lang.org/). It now supports desktop and web development. Angular Rust currently uses GTK for desktop development and WebAssembly for web development. We are planning to add support for mobile development.
 
 Yew Material Components is a components library for [Yew framework](https://yew.rs/) which is a wrapper around [Material Design Components](https://github.com/material-components/material-components-web) exposing Yew components. All modern browsers are supported.
 
 
 ## Getting started
+
 ### Installation
 
 Currently, this library is available from [crates.io](https://crates.io/). Add it using `cargo-edit`
@@ -100,28 +107,58 @@ Implement a component you need and add it to the src/ directory.
 
 These components respect the theming applied to Material Design Components using stylesheets. [Learn about how to theme Material Design Components.](https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md)
 
+
 ## Learn More
 
-* [Manual, Samples, Docs, etc](https://angular-rust.github.io/)
+* [Manual, Docs, etc](https://angular-rust.github.io/)
+* [Samples](https://github.com/angular-rust/ux-samples)
 * [Apps using Angular Rust](https://github.com/angular-rust/yew-components/wiki/Apps-in-the-Wild)
 * [Articles Featuring Angular Rust](https://github.com/angular-rust/yew-components/wiki/Articles)
 
+
 ## Community
 
-* [Gitter](https://gitter.im/angular_rust/community)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/angular-rust)
+ [![](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/groups/angular.rust) 
+ [![](https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/questions/tagged/angular-rust) 
+ [![](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCBJTkSl_JWShuolUy4JksTQ) 
+ [![](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@angular.rust) 
+ [![](https://img.shields.io/gitter/room/angular_rust/angular_rust?style=for-the-badge)](https://gitter.im/angular_rust/community)
 
-## Bugs ##
-
-If you find an issue, let me know [here](https://github.com/angular-rust/yew-components/issues/new).
 
 ## Contributing
 
-Your contributions are welcome. I openly welcome community contributions, including bug fixes and new features. Please feel free to [fork the project](https://github.com/theukedge/recent-contributors-widget/fork) and submit a pull request.
+We believe the wider community can create better code. The first tool for improving the community is to tell the developers about the project by giving it a star. More stars - more members.
 
-* [Contributing Code Guidelines](https://github.com/angular-rust/yew-components/blob/main/CONTRIBUTING.md)
-* [Angular Rust Contributors](https://github.com/angular-rust/yew-components/graphs/contributors)
+ ![Star a repo](https://dudochkin-victor.github.io/assets/star-me-wide.svg)
 
+Angular Rust is a community effort and we welcome all kinds of contributions, big or small, from developers of all backgrounds. We want the Angular Rust community to be a fun and friendly place, so please review our [Code of Conduct](CODE_OF_CONDUCT.md) to learn what behavior will not be tolerated.
+
+### New to Angular Rust?
+
+Start learning about the framework by helping us improve our [documentation](https://angular-rust.github.io/). Pull requests which improve test coverage are also very welcome.
+
+### Looking for inspiration?
+
+Check out the community curated list of awesome things related to Angular Rust / WebAssembly at [awesome-angular-rust](https://github.com/angular-rust/awesome-angular-rust).
+
+### Confused about something?
+
+Feel free to drop into our [Gitter chatroom](https://gitter.im/angular_rust/community) or open a [new "Question" issue](https://github.com/angular-rust/yew-components/issues/new/choose) to get help from contributors. Often questions lead to improvements to the ergonomics of the framework, better documentation, and even new features!
+
+### Ready to dive into the code?
+
+After reviewing the [Contributing Code Guidelines](CONTRIBUTING.md), check out the ["Good First Issues"](https://github.com/angular-rust/yew-components/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) (they are eager for attention!). Once you find one that interests you, feel free to assign yourself to an issue and don't hesitate to reach out for guidance, the issues vary in complexity.
+
+### Let's help each other!
+
+Come help us on the [issues that matter that the most](https://github.com/angular-rust/yew-components/labels/%3Adollar%3A%20Funded%20on%20Issuehunt) and receive a small cash reward for your troubles. We use [Issuehunt](https://issuehunt.io/r/angular-rust/yew-components/) to fund issues from our Open Collective funds. If you really care about an issue, you can choose to add funds yourself! 
+
+### Found a bug?
+
+Please [report all bugs!](https://github.com/angular-rust/yew-components/issues/new/choose) We are happy to help support developers fix the bugs they find if they are interested and have the time.
+
+## Todo
+- [ ] Documentation
 
 ## Alternatives
 

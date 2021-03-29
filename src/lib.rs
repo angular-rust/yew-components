@@ -43,6 +43,12 @@ pub mod banner;
 #[doc(hidden)]
 pub use banner::Banner;
 
+#[cfg(feature = "barchart")]
+pub mod barchart;
+#[cfg(feature = "barchart")]
+#[doc(hidden)]
+pub use barchart::BarChart;
+
 #[cfg(feature = "button")]
 pub mod button;
 #[cfg(feature = "button")]
@@ -109,6 +115,12 @@ pub mod form_field;
 #[doc(hidden)]
 pub use form_field::Formfield;
 
+#[cfg(feature = "gaugechart")]
+pub mod gaugechart;
+#[cfg(feature = "gaugechart")]
+#[doc(hidden)]
+pub use gaugechart::GaugeChart;
+
 #[cfg(feature = "icon-button-toggle")]
 pub mod icon_button_toggle;
 #[cfg(feature = "icon-button-toggle")]
@@ -139,6 +151,12 @@ pub mod linear_progress;
 #[doc(hidden)]
 pub use linear_progress::LinearProgress;
 
+#[cfg(feature = "linechart")]
+pub mod linechart;
+#[cfg(feature = "linechart")]
+#[doc(hidden)]
+pub use linechart::LineChart;
+
 #[cfg(feature = "list")]
 pub mod list;
 #[cfg(feature = "list")]
@@ -151,6 +169,18 @@ pub mod menu;
 #[cfg(feature = "menu")]
 #[doc(hidden)]
 pub use menu::Menu;
+
+#[cfg(feature = "piechart")]
+pub mod piechart;
+#[cfg(feature = "piechart")]
+#[doc(hidden)]
+pub use piechart::PieChart;
+
+#[cfg(feature = "radarchart")]
+pub mod radarchart;
+#[cfg(feature = "radarchart")]
+#[doc(hidden)]
+pub use radarchart::RadarChart;
 
 #[cfg(feature = "radio")]
 pub mod radio;
