@@ -15,4 +15,4 @@ It would be nice to have screenshot or result image uploaded
 Some minimal reproduce code is highly recommended
 
 **Version Information**
-Please give us what version you are using. If you are pulling `Plotters` directly from git repo, please mention this as well
+Please give us what version you are using. If you are pulling `YMC` directly from git repo, please mention this as well
