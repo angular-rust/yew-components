@@ -2,7 +2,7 @@
 
 # On every push this script is executed
 
-name: github pages
+name: Publish documentation
 
 on:
   push:
