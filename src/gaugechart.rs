@@ -110,7 +110,7 @@ impl Component for GaugeChart {
 
         chart.resize(800., 400.);
 
-        let ctx = Canvas::new(cr); // overhead
+        let ctx = Canvas::new(&cr); // overhead
         chart.draw(&ctx);
         // let element = self.node_ref.cast::<Checkbox>().unwrap();
         // if self.props.checked {
