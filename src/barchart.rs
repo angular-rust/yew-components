@@ -3,7 +3,7 @@
 #![allow(unused_imports)]
 
 use super::to_option;
-use animate::WebCanvas;
+use animate::Canvas;
 use charts::{BarChart as BarChartComponent, BarChartOptions, Chart};
 use dataflow::*;
 use wasm_bindgen::prelude::*;
@@ -114,7 +114,7 @@ impl Component for BarChart {
 
         chart.resize(800., 400.);
 
-        let ctx = WebCanvas::new(cr); // overhead
+        let ctx = Canvas::new(cr); // overhead
         chart.draw(&ctx);
 
         // let element = self.node_ref.cast::<Checkbox>().unwrap();
