@@ -22,6 +22,8 @@ jobs:
 
       - name: Build
         run: cargo build --verbose
+      - name: Install test runner
+        run: cargo install wasm-bindgen-cli
       - name: Run tests
         run: cargo test --verbose
 
