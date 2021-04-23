@@ -22,7 +22,7 @@
 [license-url]: https://github.com/angular-rust/yew-components/blob/master/LICENSE
 [gitter-badge]: https://img.shields.io/gitter/room/angular_rust/community.svg?style=flat-square
 [gitter-url]: https://gitter.im/angular_rust/community
-[tests-badge]: https://img.shields.io/github/workflow/status/angular-rust/yew-components/tests?label=tests&logo=github&style=flat-square
+[tests-badge]: https://img.shields.io/github/workflow/status/angular-rust/yew-components/Tests?label=tests&logo=github&style=flat-square
 [tests-url]: https://github.com/angular-rust/yew-components/actions/workflows/tests.yml
 [codecov-badge]: https://img.shields.io/codecov/c/github/angular-rust/yew-components?logo=codecov&style=flat-square&token=OWZIWBTGII
 [codecov-url]: https://codecov.io/gh/angular-rust/yew-components
