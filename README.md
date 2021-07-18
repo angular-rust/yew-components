@@ -15,7 +15,7 @@
 </div>
 
 [docrs-badge]: https://img.shields.io/docsrs/ymc?style=flat-square
-[docrs-url]: https://docs.rs/uymc/
+[docrs-url]: https://docs.rs/ymc/
 [crates-badge]: https://img.shields.io/crates/v/ymc.svg?style=flat-square
 [crates-url]: https://crates.io/crates/ymc
 [license-badge]: https://img.shields.io/badge/license-MPL--2.0-blue.svg?style=flat-square
